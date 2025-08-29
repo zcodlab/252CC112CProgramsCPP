@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1756488097 source:c:\apps\codeblockscplusplus252\252.uni.fp.recursion.iterative.factorial\main.cpp
+	<iostream>
+	<iomanip>
+
