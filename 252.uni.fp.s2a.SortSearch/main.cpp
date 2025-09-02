@@ -2,6 +2,34 @@
 #include "sort.h"
 using namespace std;
 const int MAX=100; //tamaño maximo permitido para el arreglo
+
+void copiarArray(int X[],int C[],int n){
+    for(int i=0; i<n;i++)
+        C[i]=X[i];
+}
+
+void cargarDatos(int X[],int C[],int n){
+    cout<<"Carga personalizada de Datos en el array"<<endl;
+    cout<<"Introduce "<<n<<" numeros para el array"<<endl;
+     for(int i=0; i<n;i++)
+        cin>>X[i];
+     copiarArray(X,C,n);    //para mantener una copia de los valores originales
+}
+
+void visualizar(int X[],int n){
+     cout<<"Visualizando el array"<<endl;
+     for(int i=0; i<n;i++)
+         cout<<X[i]<<" ";
+     cout<<endl;
+}
+
+void callSelectionSort(int X[],int C[],int n){
+    copiarArray(X,C,n);
+    visualizar(X,n);
+    selectionSort(X,n);
+    visualizar(X,n);
+}
+
 void menu(int X[],int C[],int n){
     int opcion=0;
     do{
