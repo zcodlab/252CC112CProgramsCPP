@@ -50,3 +50,27 @@ void insertionSort(int X[], int n){
         X[k+1]=aux;
     }//end for
 }
+
+//Funcion que implementa el algoritmo insertionBinarySort
+void insertionBinarySort(int X[], int n){
+        int aux,p,u,c;
+        for(int i=1; i<n;i++){
+                aux=X[i];
+                p=0;    //primero
+                u=i-1;  //ultimo
+                while(p<=u){
+                        //calculando la posicion central
+                        c=(p+u)/2;
+                        //comparar el elemento con el elemento de la posicion central
+                        if(aux<X[c])
+                            //actualizacion la posicion ultimo
+                            //buscar en el segmento izquierdo de la coleccion
+                            u=c-1;
+                        else    //buscar en el segmento derecho de la coleccion
+                            p=c+1;
+                }//end while
+                for(int k=i-1; k>=p;k--)
+                    X[k+1]=X[k];
+                X[p]=aux;
+        }//end for externo
+}
