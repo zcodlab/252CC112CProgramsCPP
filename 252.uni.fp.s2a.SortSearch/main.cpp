@@ -24,27 +24,27 @@ void visualizar(int X[],int n){
 }
 
 void callSelectionSort(int X[],int C[],int n){
-    copiarArray(X,C,n);
+    copiarArray(C,X,n); //copiar la data origen en X, en X se tendra el resultado del ordenamiento
     visualizar(X,n);
     selectionSort(X,n);
     visualizar(X,n);
 }
 void callBubbleSort(int X[],int C[],int n){
-    copiarArray(X,C,n);
+    copiarArray(C,X,n);
     visualizar(X,n);
     bubbleSort(X,n);
     visualizar(X,n);
 }
 
 void callInsertionSort(int X[],int C[],int n){
-    copiarArray(X,C,n);
+    copiarArray(C,X,n);
     visualizar(X,n);
     insertionSort(X,n);
     visualizar(X,n);
 }
 
 void callInsertionBinarySort(int X[],int C[],int n){
-    copiarArray(X,C,n);
+    copiarArray(C,X,n);
     visualizar(X,n);
     insertionBinarySort(X,n);
     visualizar(X,n);
