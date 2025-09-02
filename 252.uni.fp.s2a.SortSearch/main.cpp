@@ -1,8 +1,31 @@
 #include <iostream>
 #include "sort.h"
 using namespace std;
-
 const int MAX=100; //tamaño maximo permitido para el arreglo
+void menu(int X[],int C[],int n){
+    int opcion=0;
+    do{
+            cout<<"Algoritmos de Busqueda y Ordenamiento"<<endl;
+            cout<<"1.- Cargar datos en el array"<<endl;
+            cout<<"2.- Visualizar el array"<<endl;
+            cout<<"3.- Ordenamiento Seleccion"<<endl;
+            cout<<"4.- Salir"<<endl;
+            //validar ingreso
+            cout<<"Elija una opcion: ";
+            while(!(cin>>opcion)){
+                    cout<<"Entrada invalida, Ingrese un numero enetero: ";
+                    cin.clear();        //limpia el estado del error
+                    cin.ignore(10000,'\n')  //descartar la entrada incorrecta
+            }
+            switch(opcion){
+                case 1: cargarDatos(X,C,n); break;
+                case 2: visualizar(C,n); break;
+                case 3: callSelectionSort(X,C,n); break;
+                case 4: cout<<"Saliendo del programa..."<<endl; break;
+                default: cout<<"Opcion invakida..., elija una opcion correcta"<<endl; break;
+            }
+    }while(opcion!=4);
+}
 
 int main()
 {
