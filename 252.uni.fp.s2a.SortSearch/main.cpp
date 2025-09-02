@@ -1,5 +1,6 @@
 #include <iostream>
 #include "sort.h"
+#include "search.h"
 using namespace std;
 const int MAX=100; //tamaño maximo permitido para el arreglo
 
@@ -49,6 +50,32 @@ void callInsertionBinarySort(int X[],int C[],int n){
     insertionBinarySort(X,n);
     visualizar(X,n);
 }
+void callSearchLineal(int X[],int n){
+    int valor;
+    cout<<"Ingrese el valor a buscar: ";
+    cin>>valor;
+    visualizar(X,n);
+    int pos=searchLineal(X,n,valor);
+    if(pos!=-1)
+        cout<<"El valor "<<valor<<" se encuentra en la posicion: "<<pos<<endl;
+    else
+        cout<<"El valor "<<valor<<" NO se encuentro en el arreglo."<<endl;
+}
+void callSearchBinaria(int X[],int C[],int n){
+    int valor;
+    cout<<"Ingrese el valor a buscar: ";
+    cin>>valor;
+    visualizar(X,n);
+    copiarArray(C,X,n);
+    //llamar a un metodo de ordenamiento
+    bubbleSort(X,n);
+    visualizar(X,n);
+    int pos=searchBinaria(X,n,valor);
+    if(pos!=-1)
+        cout<<"El valor "<<valor<<" se encuentra en la posicion: "<<pos<<endl;
+    else
+        cout<<"El valor "<<valor<<" NO se encuentro en el arreglo."<<endl;
+}
 
 void menu(int X[],int C[],int n){
     int opcion=0;
@@ -60,7 +87,9 @@ void menu(int X[],int C[],int n){
             cout<<"4.- Ordenamiento Burbuja"<<endl;
             cout<<"5.- Ordenamiento Insercion"<<endl;
             cout<<"6.- Ordenamiento Insercion Binaria"<<endl;
-            cout<<"7.- Salir"<<endl;
+            cout<<"7.- Busqueda Lineal"<<endl;
+            cout<<"8.- Busqueda Binaria"<<endl;
+            cout<<"9.- Salir"<<endl;
             //validar ingreso
             cout<<"Elija una opcion: ";
             while(!(cin>>opcion)){
@@ -75,10 +104,12 @@ void menu(int X[],int C[],int n){
                 case 4: callBubbleSort(X,C,n); break;
                 case 5: callInsertionSort(X,C,n); break;
                 case 6: callInsertionBinarySort(X,C,n); break;
-                case 7: cout<<"Saliendo del programa..."<<endl; break;
-                default: cout<<"Opcion invakida..., elija una opcion correcta"<<endl; break;
+                case 7: callSearchLineal(X,n); break;
+                case 8: callSearchBinaria(X,C,n); break;
+                case 9: cout<<"Saliendo del programa..."<<endl; break;
+                default: cout<<"Opcion invalida..., elija una opcion correcta"<<endl; break;
             }
-    }while(opcion!=7);
+    }while(opcion!=9);
 }
 
 int main()
