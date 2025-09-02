@@ -29,6 +29,26 @@ void callSelectionSort(int X[],int C[],int n){
     selectionSort(X,n);
     visualizar(X,n);
 }
+void callBubbleSort(int X[],int C[],int n){
+    copiarArray(X,C,n);
+    visualizar(X,n);
+    bubbleSort(X,n);
+    visualizar(X,n);
+}
+
+void callInsertionSort(int X[],int C[],int n){
+    copiarArray(X,C,n);
+    visualizar(X,n);
+    insertionSort(X,n);
+    visualizar(X,n);
+}
+
+void callInsertionBinarySort(int X[],int C[],int n){
+    copiarArray(X,C,n);
+    visualizar(X,n);
+    insertionBinarySort(X,n);
+    visualizar(X,n);
+}
 
 void menu(int X[],int C[],int n){
     int opcion=0;
@@ -37,7 +57,10 @@ void menu(int X[],int C[],int n){
             cout<<"1.- Cargar datos en el array"<<endl;
             cout<<"2.- Visualizar el array"<<endl;
             cout<<"3.- Ordenamiento Seleccion"<<endl;
-            cout<<"4.- Salir"<<endl;
+            cout<<"4.- Ordenamiento Burbuja"<<endl;
+            cout<<"5.- Ordenamiento Insercion"<<endl;
+            cout<<"6.- Ordenamiento Insercion Binaria"<<endl;
+            cout<<"7.- Salir"<<endl;
             //validar ingreso
             cout<<"Elija una opcion: ";
             while(!(cin>>opcion)){
@@ -49,10 +72,13 @@ void menu(int X[],int C[],int n){
                 case 1: cargarDatos(X,C,n); break;
                 case 2: visualizar(C,n); break;
                 case 3: callSelectionSort(X,C,n); break;
-                case 4: cout<<"Saliendo del programa..."<<endl; break;
+                case 4: callBubbleSort(X,C,n); break;
+                case 5: callInsertionSort(X,C,n); break;
+                case 6: callInsertionBinarySort(X,C,n); break;
+                case 7: cout<<"Saliendo del programa..."<<endl; break;
                 default: cout<<"Opcion invakida..., elija una opcion correcta"<<endl; break;
             }
-    }while(opcion!=4);
+    }while(opcion!=7);
 }
 
 int main()
