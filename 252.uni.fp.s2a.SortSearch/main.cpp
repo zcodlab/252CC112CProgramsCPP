@@ -43,7 +43,7 @@ void menu(int X[],int C[],int n){
             while(!(cin>>opcion)){
                     cout<<"Entrada invalida, Ingrese un numero enetero: ";
                     cin.clear();        //limpia el estado del error
-                    cin.ignore(10000,'\n')  //descartar la entrada incorrecta
+                    cin.ignore(10000,'\n');  //descartar la entrada incorrecta
             }
             switch(opcion){
                 case 1: cargarDatos(X,C,n); break;
