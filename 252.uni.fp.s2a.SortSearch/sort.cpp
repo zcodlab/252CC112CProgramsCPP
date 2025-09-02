@@ -17,3 +17,36 @@ void selectionSort(int X[], int n){
 
     }
 }
+
+//Funcion que implementa el algoritmo bubbleSort
+void bubbleSort(int X[], int n){
+    for(int i=0; i<n-1;i++){
+            for(int j=0; j<(n-1)-i;j++){
+                    if(X[j]>X[j+1]){
+                            //intercambio
+                            int temp=X[j];
+                            X[j]=X[j+1];
+                            X[j+1]=temp;
+                    }
+            }
+    }
+}
+
+//Funcion que implementa el algoritmo insertionSort
+void insertionSort(int X[], int n){
+    int aux,k;
+    bool sw=false;
+    for(int i=1; i<n;i++){
+        aux=X[i];
+        k=i-1;
+        sw=false;
+        while(!sw && k>=0){
+                if(aux<X[k]){
+                        X[k+1]=X[k];
+                        k--;
+                }else
+                    sw=true;
+        }
+        X[k+1]=aux;
+    }//end for
+}
