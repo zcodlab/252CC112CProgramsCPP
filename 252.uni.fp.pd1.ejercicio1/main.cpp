@@ -28,13 +28,28 @@ int es_posible_grupo(int A[],int k,int n,int max_viaje){
     }//end for
     return (cont<=n);
 }
+void mostrar_grupo_minimo(int A[],int k,int n, int max_viaje){
+    int cont=1; //cont es el numero de grupos posibles
+    int sum=0;
+    cout<<"Grupo 1:"<<endl;
+    for(int i=0;i<k;i++){
+            int distancia=A[i];                         //max_viaje=21
+            if(sum+distancia>max_viaje){     //7,2,5,10,8
+                cont++;
+                cout<<endl<<"Grupo "<<cont<<" : "<<endl;
+                sum=distancia;
+            }else   //continuar acumulando en el grupo
+                sum+=distancia;
+            cout<<distancia<<"\t";
+    }
+}
 
 int reparto_minimo(int A[],int k,int n){
-    int menor_viaje=max_vector(A,k);    //un paquete en un grupo
-    int mayor_viaje=suma_vector(A,k);   //todos los paquetes en un grupo
+    int menor_viaje=max_vector(A,k);    //10  un paquete en un grupo
+    int mayor_viaje=suma_vector(A,k);   //32 todos los paquetes en un grupo
     int resultado=mayor_viaje;
     while(menor_viaje<=mayor_viaje){
-            int max_viaje=(menor_viaje+mayor_viaje)/2;
+            int max_viaje=(menor_viaje+mayor_viaje)/2;  //21
             if(es_posible_grupo(A,k,n,max_viaje)){
                 resultado=max_viaje;
                 //intentamos con una menor distancia
@@ -50,9 +65,10 @@ int main()
 {
     int A[]={7,2,5,10,8};   //32, distancia de cada pedido(km)
     int k=5;                     //numero de pedidos
-    int n=2;                    //numero de repqartidores
+    int n=2;                    //numero de repartidores
     int dmax=reparto_minimo(A,k,n);
-    cout<<dmax;
+    mostrar_grupo_minimo(A,k,n,dmax);
+    cout<<endl<<"La menor distancia maxima es: "<<dmax<<endl;
 
     return 0;
 }
