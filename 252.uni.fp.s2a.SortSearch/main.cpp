@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>  //rand(),srand()
+#include <ctime>    //time();
 #include "sort.h"
 #include "search.h"
 using namespace std;
@@ -15,6 +17,16 @@ void cargarDatos(int X[],int C[],int n){
      for(int i=0; i<n;i++)
         cin>>X[i];
      copiarArray(X,C,n);    //para mantener una copia de los valores originales
+}
+
+void cargarDatosAleatorios(int X[],int C[],int n,int low=0,int hight=MAX){
+    cout<<"Carga Aleatoria de datos en el array"<<endl;
+    cout<<"Generando "<<n<<" numeros aleatorio para el array"<<endl;
+    //inicializar la semilla de numeros aleatorios
+    srand(time(nullptr));
+    for(int i=0;i<n;i++)
+        X[i]=low + rand()%(hight-low+1);
+    copiarArray(X,C,n);    //para mantener una copia de los valores originales
 }
 
 void visualizar(int X[],int n){
@@ -59,6 +71,14 @@ void callQuickSort(int X[],int C[],int n){
     visualizar(X,n);        //ver la data despues del ordenamiento
 }
 
+//mergeSort
+void callMergeSort(int X[],int C[],int n){
+    copiarArray(C,X,n);
+    visualizar(X,n);        //ver la data antes del ordenamiento
+    mergeSort(X,0,n-1);
+    visualizar(X,n);        //ver la data despues del ordenamiento
+}
+
 
 void callSearchLineal(int X[],int n){
     int valor;
@@ -92,15 +112,17 @@ void menu(int X[],int C[],int n){
     do{
             cout<<"Algoritmos de Busqueda y Ordenamiento"<<endl;
             cout<<"1.- Cargar datos en el array"<<endl;
-            cout<<"2.- Visualizar el array"<<endl;
-            cout<<"3.- Ordenamiento Seleccion"<<endl;
-            cout<<"4.- Ordenamiento Burbuja"<<endl;
-            cout<<"5.- Ordenamiento Insercion"<<endl;
-            cout<<"6.- Ordenamiento Insercion Binaria"<<endl;
-            cout<<"7.- Ordenamiento QuickSort"<<endl;
-            cout<<"8.- Busqueda Lineal"<<endl;
-            cout<<"9.- Busqueda Binaria"<<endl;
-            cout<<"10.- Salir"<<endl;
+            cout<<"2.- Cargar aleatoria en el array"<<endl;
+            cout<<"3.- Visualizar el array"<<endl;
+            cout<<"4.- Ordenamiento Seleccion"<<endl;
+            cout<<"5.- Ordenamiento Burbuja"<<endl;
+            cout<<"6.- Ordenamiento Insercion"<<endl;
+            cout<<"7.- Ordenamiento Insercion Binaria"<<endl;
+            cout<<"8.- Ordenamiento QuickSort"<<endl;
+            cout<<"9.- Ordenamiento MergeSort"<<endl;
+            cout<<"10.- Busqueda Lineal"<<endl;
+            cout<<"11.- Busqueda Binaria"<<endl;
+            cout<<"12.- Salir"<<endl;
             //validar ingreso
             cout<<"Elija una opcion: ";
             while(!(cin>>opcion)){
@@ -110,18 +132,20 @@ void menu(int X[],int C[],int n){
             }
             switch(opcion){
                 case 1: cargarDatos(X,C,n); break;
-                case 2: visualizar(C,n); break;
-                case 3: callSelectionSort(X,C,n); break;
-                case 4: callBubbleSort(X,C,n); break;
-                case 5: callInsertionSort(X,C,n); break;
-                case 6: callInsertionBinarySort(X,C,n); break;
-                case 7: callQuickSort(X,C,n); break;
-                case 8: callSearchLineal(X,n); break;
-                case 9: callSearchBinaria(X,C,n); break;
-                case 10: cout<<"Saliendo del programa..."<<endl; break;
+                case 2: cargarDatosAleatorios(X,C,n); break;
+                case 3: visualizar(C,n); break;
+                case 4: callSelectionSort(X,C,n); break;
+                case 5: callBubbleSort(X,C,n); break;
+                case 6: callInsertionSort(X,C,n); break;
+                case 7: callInsertionBinarySort(X,C,n); break;
+                case 8: callQuickSort(X,C,n); break;
+                case 9: callMergeSort(X,C,n); break;
+                case 10: callSearchLineal(X,n); break;
+                case 11: callSearchBinaria(X,C,n); break;
+                case 12: cout<<"Saliendo del programa..."<<endl; break;
                 default: cout<<"Opcion invalida..., elija una opcion correcta"<<endl; break;
             }
-    }while(opcion!=10);
+    }while(opcion!=12);
 }
 
 int main()

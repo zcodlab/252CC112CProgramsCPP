@@ -16,4 +16,9 @@ void insertionBinarySort(int X[], int n);
 void quickSort(int X[],int low, int high);
 int particionar(int X[],int low, int high);
 
+//Declaracion de la funcion mergeSort
+void mergeSort(int X[],int left, int right);
+void merge(int X[],int left, int mid,int right);
+
+
 #endif // SORT_H
