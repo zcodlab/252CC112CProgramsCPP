@@ -50,6 +50,16 @@ void callInsertionBinarySort(int X[],int C[],int n){
     insertionBinarySort(X,n);
     visualizar(X,n);
 }
+
+//quickSort
+void callQuickSort(int X[],int C[],int n){
+    copiarArray(C,X,n);
+    visualizar(X,n);        //ver la data antes del ordenamiento
+    quickSort(X,0,n-1);
+    visualizar(X,n);        //ver la data despues del ordenamiento
+}
+
+
 void callSearchLineal(int X[],int n){
     int valor;
     cout<<"Ingrese el valor a buscar: ";
@@ -87,9 +97,10 @@ void menu(int X[],int C[],int n){
             cout<<"4.- Ordenamiento Burbuja"<<endl;
             cout<<"5.- Ordenamiento Insercion"<<endl;
             cout<<"6.- Ordenamiento Insercion Binaria"<<endl;
-            cout<<"7.- Busqueda Lineal"<<endl;
-            cout<<"8.- Busqueda Binaria"<<endl;
-            cout<<"9.- Salir"<<endl;
+            cout<<"7.- Ordenamiento QuickSort"<<endl;
+            cout<<"8.- Busqueda Lineal"<<endl;
+            cout<<"9.- Busqueda Binaria"<<endl;
+            cout<<"10.- Salir"<<endl;
             //validar ingreso
             cout<<"Elija una opcion: ";
             while(!(cin>>opcion)){
@@ -104,12 +115,13 @@ void menu(int X[],int C[],int n){
                 case 4: callBubbleSort(X,C,n); break;
                 case 5: callInsertionSort(X,C,n); break;
                 case 6: callInsertionBinarySort(X,C,n); break;
-                case 7: callSearchLineal(X,n); break;
-                case 8: callSearchBinaria(X,C,n); break;
-                case 9: cout<<"Saliendo del programa..."<<endl; break;
+                case 7: callQuickSort(X,C,n); break;
+                case 8: callSearchLineal(X,n); break;
+                case 9: callSearchBinaria(X,C,n); break;
+                case 10: cout<<"Saliendo del programa..."<<endl; break;
                 default: cout<<"Opcion invalida..., elija una opcion correcta"<<endl; break;
             }
-    }while(opcion!=9);
+    }while(opcion!=10);
 }
 
 int main()

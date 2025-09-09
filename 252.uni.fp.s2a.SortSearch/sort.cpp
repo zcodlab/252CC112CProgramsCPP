@@ -1,3 +1,4 @@
+#include <iostream>
 #include "sort.h"
 using namespace std;
 //Funcion que implementa el algoritmo selectionSort
@@ -73,4 +74,27 @@ void insertionBinarySort(int X[], int n){
                     X[k+1]=X[k];
                 X[p]=aux;
         }//end for externo
+}
+//Funcion para implementar el algoritmo quickSort
+void quickSort(int X[],int low, int high){
+    if(low<high){
+            int pivotIdx=particionar(X,low,high);
+            //recursivamente ordenar las 2 sublistas
+            quickSort(X,low,pivotIdx-1);//invoca recursivamente la 1 sublista
+            quickSort(X,pivotIdx+1,high);//invoca recursivamente la 2 sublista
+    }
+}
+
+int particionar(int X[],int low, int high){
+    int p=X[low];       //p es el pivote, y se considera el primer elemento de la lista
+    int m=low;          //el indice limite entre las sublistas a generar, el indice donde se divide la lista principal para generar las 2 sublistas
+    for(int k=low+1;k<=high;k++){
+            if(X[k]<p){
+                    m++;
+                    if(X[k]!=X[m])
+                        swap(X[k],X[m]);    //se intercambian los elementos de las posiciones k y m
+            }
+    }
+    swap(X[low], X[m]);     //colocamos el pivote en el indice que divide las 2 sublistas
+    return m;
 }

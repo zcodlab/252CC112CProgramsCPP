@@ -12,5 +12,8 @@ void insertionSort(int X[], int n);
 //Declaracion de la funcion Insertion Binary Sort
 void insertionBinarySort(int X[], int n);
 
+//Declaracion de la funcion QuickSort
+void quickSort(int X[],int low, int high);
+int particionar(int X[],int low, int high);
 
 #endif // SORT_H
