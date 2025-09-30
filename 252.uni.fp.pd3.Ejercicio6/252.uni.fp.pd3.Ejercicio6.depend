@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1759261939 source:c:\apps\codeblockscplusplus252\252.uni.fp.pd3.ejercicio6\main.cpp
+	<iostream>
+	<cstring>
+	<cctype>
+
