@@ -2,6 +2,11 @@
 #include <string>
 #include <ctime>
 using namespace std;
+const int N_ATRIBUTOS=7;
+const int N_VECES_MIN=1;
+const int N_VECES_MAX=5;
+const int SUBSTR_POS=3;
+const int N_BYTES_LIMPIEZA=20;
 
 int main()
 {
@@ -19,18 +24,18 @@ int main()
     do{
         cout << "Ingrese el numero de veces que se generara el epitafio [1-5] : ";
         cin>>veces;
-    }while(veces<1 || veces>5);
+    }while(veces<N_VECES_MIN || veces>N_VECES_MAX);
     cout << "Ingrese el nombre y apellido: "<<endl;
-    cin.ignore(20,'\n');
+    cin.ignore(N_BYTES_LIMPIEZA,'\n');
     getline(cin,nombre,'\n');
     srand(time(NULL));
     for(int i=0;i<veces;i++){
-            int j=rand()%7;
-            int k=rand()%7;
+            int j=rand()%N_ATRIBUTOS;
+            int k=rand()%N_ATRIBUTOS;
             while(j==k)
-                k=rand()%7;
+                k=rand()%N_ATRIBUTOS;
             cout<<nombre<<": Se le conocia como "<<atributos[j]
-            <<" pero no tan "<<atributos[k].substr(3)<<endl;
+            <<" pero no tan "<<atributos[k].substr(SUBSTR_POS)<<endl;
 
     }
 
