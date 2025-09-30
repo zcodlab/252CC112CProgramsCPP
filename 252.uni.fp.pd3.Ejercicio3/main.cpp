@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+const int MAX=10;
 
 unsigned int strlen(const char* p){
     int i=0;
@@ -17,7 +18,7 @@ void rev(char* a){
 
 int main()
 {
-    char a[10]={};
+    char a[MAX]={};
     cout << "Ingrese la palabra:" << endl;
     cin>>a;
     rev(a);
