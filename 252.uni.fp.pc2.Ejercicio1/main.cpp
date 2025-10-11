@@ -14,7 +14,7 @@ int main()
 {
     int A[N][N]={{5,8,13},{7,4,2},{6,9,11}};
     int opcion, n=N;
-    int *p=*A;
+    int *p=*A; //declaracion de puntero a entero e inicializacion con la matriz A
     int (*operacion)(int *,int)=nullptr;
 
     mostrarMatriz(p,n);
