@@ -1,0 +1,4 @@
+DNI,Promedio,Condicion,Discapacidad,Rural
+12345678,16.5,Pobre,No,Si
+87654321,18.2,PobreExtremo,No,No
+11223344,15.8,Pobre,Si,Si
